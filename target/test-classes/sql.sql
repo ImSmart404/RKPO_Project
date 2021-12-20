@@ -1,1 +1,1 @@
-select * from server.user;
+SELECT * FROM server.user WHERE user_id = 1;
