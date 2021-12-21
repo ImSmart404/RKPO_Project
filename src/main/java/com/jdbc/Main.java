@@ -1,11 +1,8 @@
 package com.jdbc;
-import com.mysql.fabric.jdbc.FabricMySQLDriver;
-
-import javax.xml.transform.Result;
 import java.io.*;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.URL;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
 import java.sql.*;
 import java.util.LinkedList;
 
@@ -21,7 +18,9 @@ public class Main {
     private static ResultSet rs;
 
 
-    public static void main(String[] args) {
+
+
+    public static void main(String[] args) throws IOException {
         LinkedList<String> query = new LinkedList<>();
         query.add("SELECT COUNT(user_id) FROM server.users");
         int num_of_users=0;
@@ -29,6 +28,10 @@ public class Main {
         String Login_Server="";
         String Password_Server="";
         boolean LogIn = false;
+
+        String line = "";
+        Socket server = new Socket(4000, line);
+        System.out.println(server);
 
         try {
             // открываем соединение с базой данных
